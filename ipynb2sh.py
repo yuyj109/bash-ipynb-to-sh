@@ -21,7 +21,7 @@ def ipynb2sh(filename):
         fi
 
         if [ "$(basename ${0})" != "bash" ];then 
-          FILE_LOG="${DIR_LOG}/$(date +%Y-%m-%d)-${BASENAME}.log" &&\\
+          FILE_LOG="${DIR_LOG}/$(date +%Y-%m-%d)-${BASENAME}.log"
           echo ${FILE_LOG}
           exec &> ${FILE_LOG}
           set -vx
