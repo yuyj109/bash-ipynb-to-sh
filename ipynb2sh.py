@@ -15,15 +15,14 @@ def ipynb2sh(filename):
 
         BASENAME="$(basename ${0%.sh})"
 
-        DIR_LOG="${HOME}/tmp/logs-${PRODUCT_NAME}-${BASENAME}"
+        DIR_LOG="${HOME}/tmp/logs"
         if [ ! -d ${DIR_LOG} ];then
           mkdir -p ${DIR_LOG}
         fi
 
-        FILE_LOG="${DIR_LOG}/$(date +%Y-%m-%d)-${PRODUCT_NAME}-${BASENAME}.log" &&\\
-        echo ${FILE_LOG}
-        
         if [ "$(basename ${0})" != "bash" ];then 
+          FILE_LOG="${DIR_LOG}/$(date +%Y-%m-%d)-${BASENAME}.log" &&\\
+          echo ${FILE_LOG}
           exec &> ${FILE_LOG}
           set -vx
         fi
